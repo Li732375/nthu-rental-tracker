@@ -427,7 +427,7 @@ def generate_readme(
         "## ℹ️ 關於本專案",
         "",
         "本專案透過 GitHub Actions 每週自動抓取 "
-        f"[國家住都中心招租快訊]({TARGET_URL})，",
+        f"[招租快訊]({TARGET_URL})，",
         "將最新資料轉為 Markdown 表格並更新至本 README，",
         "同時在上方顯示與上週的差異摘要。",
         "",
