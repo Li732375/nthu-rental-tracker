@@ -438,9 +438,9 @@ def generate_readme(
         "- **自動排程**：GitHub Actions（每週一 20:00 台灣時間）",
         "- **資料快照**：`data.json` 記錄上次抓取結果",
         "",
-        f"*最後更新：{now}*",
-        "",
         "本專案完全由 Antigravity 開發製作",
+        f"最後更新：{now}*",
+        "",
     ]
     return "\n".join(parts)
 
