@@ -329,7 +329,7 @@ def generate_diff_summary(diff: dict, now: str, is_first_run: bool) -> str:
 
     if is_first_run:
         lines += [
-            "> 🆕 首次執行，無先前資料可供比對。以下為完整抓取結果。",
+            "> 🆕 首次執行，無先前資料可供比對。",
             "",
             "---",
             "",
