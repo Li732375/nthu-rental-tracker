@@ -435,11 +435,12 @@ def generate_readme(
         "",
         "- **爬蟲引擎**：Python + curl_cffi + BeautifulSoup4",
         "- **差異比對**：基於 MD5 hash 的結構化比對",
-        "- **自動排程**：GitHub Actions（每週一 09:00 台灣時間）",
+        "- **自動排程**：GitHub Actions（每週一 20:00 台灣時間）",
         "- **資料快照**：`data.json` 記錄上次抓取結果",
         "",
         f"*最後更新：{now}*",
         "",
+        "本專案完全由 Antigravity 開發製作",
     ]
     return "\n".join(parts)
 
