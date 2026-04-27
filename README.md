@@ -1,10 +1,10 @@
-# 📊 本週招租快訊更新摘要（2026-04-26）
+# 📊 本週招租快訊更新摘要（2026-04-27）
 
-> 🆕 首次執行，無先前資料可供比對。以下為完整抓取結果。
+> ✅ 本週無新增或變動項目。
 
 ---
 
-## 📋 招租快訊（更新時間：2026-04-26）
+## 📋 招租快訊（更新時間：2026-04-27）
 
 | 日期 | 標題 |
 |------|------|
@@ -19,7 +19,7 @@
 
 ## ℹ️ 關於本專案
 
-本專案透過 GitHub Actions 每週自動抓取 [國家住都中心招租快訊](https://www.nthurc.org.tw/leasing-news/residential-area)，
+本專案透過 GitHub Actions 每週自動抓取 [招租快訊](https://www.nthurc.org.tw/leasing-news/residential-area)，
 將最新資料轉為 Markdown 表格並更新至本 README，
 同時在上方顯示與上週的差異摘要。
 
@@ -27,7 +27,8 @@
 
 - **爬蟲引擎**：Python + curl_cffi + BeautifulSoup4
 - **差異比對**：基於 MD5 hash 的結構化比對
-- **自動排程**：GitHub Actions（每週一 09:00 台灣時間）
+- **自動排程**：GitHub Actions（每週一 20:00 台灣時間）
 - **資料快照**：`data.json` 記錄上次抓取結果
 
-*最後更新：2026-04-26*
+本專案完全由 Antigravity 開發製作
+最後更新：2026-04-27*
