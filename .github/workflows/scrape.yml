@@ -33,6 +33,7 @@ jobs:
 
       # 4. 執行爬蟲
       - name: 🕷️ Run crawler
+        id: crawler
         run: python crawler.py
 
       # 5. 提交並推送變更
@@ -44,3 +45,37 @@ jobs:
           # 僅在有變更時才 commit
           git diff --staged --quiet || git commit -m "🔄 自動更新招租快訊（$(date '+%Y-%m-%d')）"
           git push
+
+      # 6️⃣ ✅ 成功通知 LINE（← 就是放這）
+      - name: ✅ Notify LINE (Success)
+        if: success()
+        run: |
+          curl -X POST https://api.line.me/v2/bot/message/push \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ secrets.LINE_TOKEN }}" \
+          -d "{
+            \"to\": \"${{ secrets.LINE_USER_ID }}\",
+            \"messages\":[
+              {
+                \"type\":\"text\",
+                \"text\":\"✅ 招租快訊執行成功\n⏰ 時間: $(date '+%Y-%m-%d %H:%M')\n📊 結果: ${{ steps.crawler.outputs.summary }}\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
+              }
+            ]
+          }"
+
+      # 7️⃣ ❌ 失敗通知 LINE（← 也放最後）
+      - name: ❌ Notify LINE (Failure)
+        if: failure()
+        run: |
+          curl -X POST https://api.line.me/v2/bot/message/push \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ secrets.LINE_TOKEN }}" \
+          -d "{
+            \"to\": \"${{ secrets.LINE_USER_ID }}\",
+            \"messages\":[
+              {
+                \"type\":\"text\",
+                \"text\":\"❌ 招租快訊執行失敗\n⏰ 時間: $(date '+%Y-%m-%d %H:%M')\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
+              }
+            ]
+          }"

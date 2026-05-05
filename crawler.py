@@ -18,6 +18,7 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
+import os
 
 from curl_cffi import requests as curl_requests
 from bs4 import BeautifulSoup
@@ -505,6 +506,19 @@ def main() -> None:
             len(diff["changed"]),
         )
     log.info("=" * 50)
+
+    # 8) 輸出給 GitHub Actions（用於 LINE 通知）
+    if is_first_run:
+        summary = "首次執行"
+    elif not (diff["added"] or diff["removed"] or diff["changed"]):
+        summary = "本週無新增或變動項目"
+    else:
+        summary = "本週有新增或變動項目"
+
+    output_path = os.environ.get("GITHUB_OUTPUT")
+    if output_path:
+        with open(output_path, "a") as f:
+            f.write(f"summary={summary}\n")
 
 
 if __name__ == "__main__":
