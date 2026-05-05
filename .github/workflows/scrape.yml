@@ -58,7 +58,7 @@ jobs:
             \"messages\":[
               {
                 \"type\":\"text\",
-                \"text\":\"✅ 招租快訊執行成功\n⏰ 時間: $(date '+%Y-%m-%d %H:%M')\n📊 結果: ${{ steps.crawler.outputs.summary }}\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
+                \"text\":\"✅ 招租快訊執行成功\n⏰ 時間: $(TZ='Asia/Taipei' date '+%Y-%m-%d %H:%M')\n📊 結果: ${{ steps.crawler.outputs.summary }}\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
               }
             ]
           }"
@@ -75,7 +75,7 @@ jobs:
             \"messages\":[
               {
                 \"type\":\"text\",
-                \"text\":\"❌ 招租快訊執行失敗\n⏰ 時間: $(date '+%Y-%m-%d %H:%M')\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
+                \"text\":\"❌ 招租快訊執行失敗\n⏰ 時間: $(TZ='Asia/Taipei' date '+%Y-%m-%d %H:%M')\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
               }
             ]
           }"
