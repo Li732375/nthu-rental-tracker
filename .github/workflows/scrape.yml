@@ -46,7 +46,7 @@ jobs:
           git diff --staged --quiet || git commit -m "🔄 自動更新招租快訊（$(date '+%Y-%m-%d')）"
           git push
 
-      # 6️⃣ ✅ 成功通知 LINE（← 就是放這）
+      # 6️⃣ ✅ 成功通知 LINE
       - name: ✅ Notify LINE (Success)
         if: success()
         run: |
@@ -58,12 +58,12 @@ jobs:
             \"messages\":[
               {
                 \"type\":\"text\",
-                \"text\":\"✅ 招租快訊執行成功\n⏰ 時間: $(TZ='Asia/Taipei' date '+%Y-%m-%d %H:%M')\n📊 結果: ${{ steps.crawler.outputs.summary }}\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
+                \"text\":\"✅ 招租快訊\n📊 結果: ${{ steps.crawler.outputs.summary }}\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n⏰ 時間: $(TZ='Asia/Taipei' date '+%Y-%m-%d %H:%M')\"
               }
             ]
           }"
 
-      # 7️⃣ ❌ 失敗通知 LINE（← 也放最後）
+      # 7️⃣ ❌ 失敗通知 LINE
       - name: ❌ Notify LINE (Failure)
         if: failure()
         run: |
@@ -75,7 +75,7 @@ jobs:
             \"messages\":[
               {
                 \"type\":\"text\",
-                \"text\":\"❌ 招租快訊執行失敗\n⏰ 時間: $(TZ='Asia/Taipei' date '+%Y-%m-%d %H:%M')\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
+                \"text\":\"❌ 招租快訊\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n⏰ 時間: $(TZ='Asia/Taipei' date '+%Y-%m-%d %H:%M')\"
               }
             ]
           }"
