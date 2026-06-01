@@ -513,7 +513,7 @@ def main() -> None:
     elif not (diff["added"] or diff["removed"] or diff["changed"]):
         summary = "本週無新增或變動項目"
     else:
-        summary = "本週有新增或變動項目"
+        summary = "本週 有 新增或變動項目"
 
     output_path = os.environ.get("GITHUB_OUTPUT")
     if output_path:
