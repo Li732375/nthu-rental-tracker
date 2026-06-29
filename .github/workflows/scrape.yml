@@ -58,7 +58,7 @@ jobs:
             \"messages\":[
               {
                 \"type\":\"text\",
-                \"text\":\"✅ 招租快訊\n📊 結果: ${{ steps.crawler.outputs.summary }}\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n⏰ 時間: $(TZ='Asia/Taipei' date '+%Y-%m-%d %H:%M')\"
+                \"text\":\"✅ 招租快訊: ${{ steps.crawler.outputs.summary }}\n🔗 https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n⏰ 時間: $(TZ='Asia/Taipei' date '+%Y-%m-%d %H:%M')\"
               }
             ]
           }"
